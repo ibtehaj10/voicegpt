@@ -1,0 +1,23 @@
+body{
+    background-image: linear-gradient(45deg,rgb(3, 1, 2),rgb(33, 33, 33),rgb(3, 1, 2));
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 20%;
+}
+
+#recBtn{
+    background-color: rgba(0, 0, 0, 0.058);
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 50px;
+
+    
+
+}
+#recBtn img{
+    height: 100px;
+
+}
+h2{
+    color: white;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RASA STT</title>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/9f4c240921.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9f4c240921.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/6d6e424960.js" crossorigin="anonymous"></script>
+
+</head>
+<body  >
+    <style>
+        #waveform{
+            width: 100%;
+            margin: 10% auto;
+            max-width: 800px;
+            height: 100px;
+            margin-top: 0;
+        
+       
+        }
+        body {
+  background-image: url('../ai.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url('../static/ai.jpg');
+}
+
+
+
+        button{
+          
+ 
+    border: none;
+    border-radius: 50%;
+    
+    height: 70px;
+  
+    width: 70px;
+    /* background-image: linear-gradient(blue,pink); */
+    box-shadow: 1px 1px 10px 6px red;
+    margin-top: 200px;
+        }
+        button i{
+            color: red;
+            font-size: 35px;
+        }
+        button:hover i{
+            color: blue;
+            font-size: 35px;
+        }
+        .dmain{
+          
+            border: 1px solid red;
+        }
+        button:hover{
+
+        background-color: white;
+        box-shadow: 1px 1px 10px 6px blue;
+        transition-duration: 0.5s;
+        }
+  
+      
+      h1{
+        color:white;
+        background-color: rgba(16, 15, 15, 0.616);
+        border-radius: 50px 50px 50px 50px ;
+        
+        
+      }
+    </style>
+
+<center>
+
+
+
+    <form action="/speak" method="post">
+     
+        <button name="Speak" onclick="home()"><i class="fa-solid fa-microphone-lines"></i>
+        
+        
+        </button>
+
+
+      
+        <div class="background"></div>
+  
+    </form>
+    <h1>{{text}}</h1>
+    <h1>{{bot}}</h1>
+  
+
+
+     
+      
+    
+      <script>
+        var wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: '#ff007d',
+    progressColor: '#f6c6ff',
+
+    
+});
+
+
+
+function play() {
+        wavesurfer.playPause();
+    }
+
+    wavesurfer.on('ready', play);
+
+    wavesurfer.on('error', function(){
+        console.log("does not get called when autoplay fails :(");
+    });
+
+    wavesurfer.on('play', function(){
+        console.log("called even when autoplay fails");
+    });
+    wavesurfer.load('{{wav}}');
+// <button class="btn" onclick="wavesurfer.on('load', wavesurfer.play.bind(wavesurfer)); wavesurfer.load('{{wav}}');"> Play </button>
+//       </script>
+</center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+</body>
+</html>
